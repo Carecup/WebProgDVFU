@@ -4,10 +4,112 @@
     <meta charset="UTF-8">
     <title>Список самых популярные книги</title>
 </head>
-<body>
+<body bgcolor="gray">
 <a href="index.html">Самые популярные книги</a>
 <br>
 <b><a href = "list.html">Список самых популярных книг</a></b>
+<details>
+    <summary> График </summary>
+    <form>
+        <table>
+          <tbody><tr>
+            <th>Значениe по оси OX</th>
+            <th>Результат</th>
+          </tr>
+          <tr>
+            <td>
+              <input type="radio" name="ox" value="0">Автор<br>
+              <input type="radio" name="ox" value="1">Год<br>
+              <input type="radio" name="ox" value="3">Издательство<br>
+            </td>
+            <td>
+              <input type="checkbox" name="oy" value="0">Максимальное количество страниц<br>
+              <input type="checkbox" name="oy" value="1">Минимальное количество страниц<br>
+			  <input type="checkbox" name="oy" value="3">Количество книг<br>
+            </td>
+          </tr>
+        </tbody></table>
+		<input type="button" value="Построить">
+		<p>Здесь будет график</p>
+	</form>	
+</details>
+<details>
+    <summary> Фильтр</summary>
+    <form>
+        <p>
+           <label for="structure">Название:</label>
+		   <input type="text" name="structure">
+        </p>
+        <p>
+		    <label for="category">Автор:</label>
+            <input type="text" name="category">
+        </p>
+        <p>
+		   <label for="country">Издательство:</label>
+          <input type="text" name="country">
+        </p>
+		 <p>
+		   <label for="city">Год издания:</label>
+           <input type="text" name="city">
+        </p>
+ 		 <p>
+		  <label for="yFrom">Кол-во страниц: </label>
+           от <input type="text" name="yFrom"> до <input type="text" name="yFo">
+        </p>
+        <p>
+		   <label for="hFrom">Место в рейтинге:</label>
+           от <input type="text" name="hFrom"> до <input type="text" name="hTo">
+        </p>
+        <input type="button" value="Найти">		
+	</form>	
+</details>
+<details>
+    <summary>Сортировка</summary>
+    <form>
+	  <p>
+          Первый уровень:
+          <select name="sortFirst">
+            <option value="0">Нет</option>
+            <option value="1">Название</option>
+            <option value="2">Автор</option>
+            <option value="3">Издательство</option>
+            <option value="4">Год издание</option>
+			<option value="6">Кол-во страниц</option>
+            <option value="5">Место в рейтинге</option>
+ 
+          </select>
+          по убыванию? <input type="checkbox" name="descFirst">
+        </p>  
+        <p>
+          Второй уровень:
+		  <select name="sortSecond">
+            <option value="0">Нет</option>
+            <option value="1">Название</option>
+            <option value="2">Автор</option>
+            <option value="3">Издательство</option>
+            <option value="4">Год издание</option>
+			<option value="6">Кол-во страниц</option>
+            <option value="5">Место в рейтинге</option>
+          </select>
+          по убыванию? <input type="checkbox" name="descSecond">
+        </p>
+        <p>
+          Третий уровень:
+          <select name="sortThird">
+            <option value="0">Нет</option>
+            <option value="1">Название</option>
+            <option value="2">Автор</option>
+            <option value="3">Издательство</option>
+            <option value="4">Год издание</option>
+			<option value="6">Кол-во страниц</option>
+            <option value="5">Место в рейтинге</option>
+          </select>
+          по убыванию? <input type="checkbox" name="descThird">
+        </p>
+      <input type="button" value="Сортировать">		
+	</form>	
+</details>
+<br>
 <table border = "1">
     <tbody>
     <tr>
