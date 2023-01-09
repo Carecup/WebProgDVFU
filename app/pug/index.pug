@@ -1,0 +1,22 @@
+extends template
+
+block title
+  title Самые популярные книги
+
+block footer 
+  +footer-long-page 
+
+block content
+    .img-1
+      a(href="Page_03.html") 
+        img(src='img/Artur_Konan_Dojl__Sherlok_Holms._Vse_povesti_i_rasskazy_o_syschike_No_1_sbornik.jpeg')
+      img(src='img/Dzhoan_Rouling__Garri_Potter_i_uznik_Azkabana.jpeg')
+      img(src='img/Nora_Sakavich__Svita_korolya.jpeg')
+      img(src='img/Stiven_King__Zeljonaya_milya.jpeg')
+    .my-block-1
+    
+    +block-content-2('img/Lev_Tolstoj__Vojna_i_mir.jpeg', 'Лев Толстой "Война и мир"', '«Война́ и мир» — роман-эпопея Льва Николаевича Толстого, описывающий русское общество в эпоху войн против Наполеона в 1805—1812 годах. Эпилог романа доводит повествование до 1820 года.')
+    
+    +block-content-2('img/Dzhordzh_Oruell__1984.jpeg', 'Джордж Оруэлл "1984"', '«1984» (англ. Nineteen Eighty-Four, «Тысяча девятьсот восемьдесят четвёртый») — роман-антиутопия Джорджа Оруэлла, изданный в 1949 году. Как отмечает членкор РАН М. Ф. Черныш, это самое главное и последнее произведение писателя')
+    
+    +block-content-2('img/100_Let_Odinochestva.jpg', 'Габриэль Гарсиа Маркес "Сто лет одиночества"', '«Сто лет одиночества» (исп. Cien años de soledad) — роман колумбийского писателя Габриэля Гарсиа Маркеса, одно из наиболее характерных и популярных произведений в направлении магического реализма. Роман был удостоен премии Ромуло Гальегоса.')
