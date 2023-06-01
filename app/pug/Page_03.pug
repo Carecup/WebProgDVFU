@@ -1,17 +1,17 @@
 extends template
 
 block title
-  title Шерлок Холмс 
+  title Галерея мультсериалов
 
 block content
-  hr
-  .block-title
-    img(src = 'img/Artur_Konan_Dojl__Sherlok_Holms._Vse_povesti_i_rasskazy_o_syschike_No_1_sbornik.jpeg')
-    p Шерлок Холмс
-    .main-title
-      p Шерлок Холмс - гениальный сыщик, главный герой серии детективов Артура Конан Дойля.
-      p Шерлок Холмс - обладатель неординарных способностей, разрабал дедуктивный метод, с помощью которого мог раскрыть практически любое преступление. Он мизантроп, любит полежать без дела на диване, перечитывая любимые книги, имеет странные привычки, рассеян, но в то же время невероятно внимателен. По образованию биохимик, играет на скрипке, курит трубку, табак для которой хранит в носке туфли, бывает стреляет дома из пистолета в стену, а про кокаин читатель узнает из рассказов. 
+  div#gallery
+  div.zoop-0
+  
+block head
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"/>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/js/lightgallery-all.min.js"></script>
 
-    
 block footer 
   +footer-short-page 
+  script(src='js/js-2 - galerey.js')

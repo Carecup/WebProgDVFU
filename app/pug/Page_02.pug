@@ -8,10 +8,9 @@ mixin my-option
     option(value='3') Издательство
     option(value='4') Год издания
     option(value='5') Кол-во страниц
-    option(value='6') Место в рейтинге
 
 block title
-  title Список самый популярных книг
+  title Список мультсериалов 
 
 mixin table-create(a, b, c, d, e, f)
   tr
@@ -20,14 +19,19 @@ mixin table-create(a, b, c, d, e, f)
     td=c
     td=d
     td=e
-    td=f    
+    td=f
 
 block footer 
   +footer-long-page 
+  //script(src="http://d3js.org/d3.v7.js")
+  script(src="https://d3js.org/d3.v5.min.js")
+  script(src='js/js-3.js')
+  script(src='js/js-3-diagramm.js')
+  
 
 block content
-    details
-      summary Блок настроек показа: 
+    details(open)
+      summary.text-002 Блок настроек показа
       .main-block
         .block-01
           .table 
@@ -35,53 +39,55 @@ block content
               p График:
             .left-edge-1
               p.title-1 Значение по оси OХ: 
-              p Автор
-                input(type='radio', name='ox', value='жанр')
-              p Год
-                input(type='radio', name='ox', value='жанр')
-              p Издательство
-                input(type='radio', name='ox', value='жанр')
+              div
+                input#inp2-1(type='radio', name='ox', value='жанр')
+                p Год издания
+              div
+                input#inp2-2(type='radio', name='ox', value='жанр', checked)
+                p Издательство               
             .right-edge-1
               p.title-1 Результат: 
-              p Максимальное количество страниц
-                input(type='checkbox', name='result', value='макс')
-              p Минимальное количество страниц
-                input(type='checkbox', name='result', value='мин')
-              p Количество книг
-                input(type='checkbox', name='result', value='колво')
-            button Построить 
+              div
+                input#in-1(type='radio', name='result', value='колво', checked)       
+                p Максимальное количество страниц           
+              div   
+                input#in-2(type='radio', name='result', value='макс')    
+                p Минимальное количество страниц             
+              div
+                input#in-3(type='radio', name='result', value='мин')
+                p Место в рейтинге         
+            button#butt-graf Построить 
         .block-02
-          .table-2-2
-            .table 
-              .title-1-3
-                p Фильтр:
-              .left-edge-1
-                p Название:
-                p Автор:
-                p Издательство:
-                p Год издания:	
-                p Кол-во страниц (от):	
-                p Кол-во страниц (до):
-                p Место в рейтинге (от):	
-                p Место в рейтинге (до):
-              .right-edge-1
-                p
-                  input#name(type='text', placeholder='Введите название')
-                p
-                  input#name(type='text', placeholder='Введите имя')
-                p
-                  input#name(type='text', placeholder='Введите название')
-                p
-                  input#name(type='text', placeholder='Введите год')
-                p
-                  input#name(type='text', placeholder='Введите цифру')
-                p
-                  input#name(type='text', placeholder='Введите цифру')
-                p
-                  input#name(type='text', placeholder='Введите цифру')
-                p
-                  input#name(type='text', placeholder='Введите цифру')
-              button Найти 
+          .table.class_01 
+            .title-1-1
+              p Фильтр:
+            .left-edge-1
+              p Название:
+              p Автор:
+              p Издательство:
+              p Год издания:	
+              p Кол-во страниц (от):	
+              p Кол-во страниц (до):
+              p Место в рейтинге (от):	
+              p Место в рейтинге (до):
+            .right-edge-1
+              p
+                input#name(type='text', placeholder='Введите название')
+              p
+                input#name(type='text', placeholder='Введите имя')
+              p
+                input#name(type='text', placeholder='Введите название')
+              p
+                input#name(type='text', placeholder='Введите год')
+              p
+                input#name(type='text', placeholder='Введите цифру')
+              p
+                input#name(type='text', placeholder='Введите цифру')
+              p
+                input#name(type='text', placeholder='Введите цифру')
+              p
+                input#name(type='text', placeholder='Введите цифру')
+            button#butt-filter Найти 
         .block-03
           .table-2
             .title-1-2
@@ -90,12 +96,12 @@ block content
               p Первый уровень
               p Второй уровень 
               p Третий уровень
-            .center-edge-2
-              p 
+            .center-edge-2#sort-opt 
+              p.l1
                 +my-option
-              p 
+              p.l2
                 +my-option
-              p 
+              p.l3
                 +my-option
             .right-edge-2
               p.no-ind по убыванию?
@@ -104,37 +110,48 @@ block content
                 input(type='checkbox', name='ack1', value='ack1')
               p.no-ind по убыванию?
                 input(type='checkbox', name='ack1', value='ack1')
-            button Построить 
-    
-    .my-block-1
+            button#butt-sort Построить 
+      div.block-graf
+        p График:
+        div#graf-container
+          div.curr-graff
+      
+    p.text-001 Таблица
 
-    table
-      tr.title
-        td Название
-        td Автор
-        td Издательство
-        td Год издания
-        td Кол-во страниц
-        td Место в рейтинге
-      +table-create('Война и мир', 'Лев Толстой', 'Советская Россия', '1869', '1472', '1' )
-      +table-create('1984', 'Джордж Оруэлл', 'КАРО', '1949', '384', '2' )
-      +table-create('Улисс', 'Джеймс Джойс', 'Текст', '1922', '1136', '3' )
-      +table-create('Лолита', 'Владимир Набоков', 'Азбука', '1955', '416', '4' )
-      +table-create('Звук и ярость', 'Уильям Фолкнер', 'АСТ', '1929', '416', '5' )
-      +table-create('Человек-невидимка', 'Ральф Эллисон', 'Random House', '1952', '399', '6' )
-      +table-create('На маяк', 'Вирджиния Вулф', 'АСТ', '1927', '288', '7' )
-      +table-create('Гордость и предубеждение', 'Джейн Остен', 'АСТ', '1813', '320', '8' )
-      +table-create('Божественная комедия', 'Данте Алигьери', 'Эксмо', '1320', '384', '9' )
-      +table-create('Кентерберийские рассказы', 'Джеффри Чосер', 'Эксмо', '1392', '768', '10' )
-      +table-create('Путешествия Гулливера', 'Джонатан Свифт', 'Махаон', '1726', '144', '11' )
-      +table-create('Мидлмарч', 'Джордж Элиот', 'Астрель', '1871', '832', '12' )
-      +table-create('Распад', 'Чинуа Ачебе', 'У-Фактория', '1998', '640', '13' )
-      +table-create('Над пропастью во ржи', 'Дж.Д.Сэлинджер', 'Эксмо', '1951', '272', '14' )
-      +table-create('Унесенные ветром', 'Маргарет Митчелл', 'Эксмо', '1939', '1056', '15' )
-      +table-create('Сто лет одиночества', 'Габриель Гарсиа Маркес', 'АСТ', '1967', '480', '16' )
-      +table-create('Великий гэтсби', 'Фрэнсис Скотт Фицджеральд', 'Эксмо', '1925', '256', '17' )
-      +table-create('Уловка-22', 'Джозеф Хеллер', 'АСТ', '1961', '672', '18' )
-      +table-create('Возлюбленная', 'Тони Моррисон', 'Эксмо', '1987', '384', '19' )
-      +table-create('Гроздья гнева', 'Джон Стейнбек', 'Азбука', '1939', '608', '20' )
-      +table-create('Дети полуночи', 'Салман Рушди', 'Лимбус', '1981', '760', '21' )
-      +table-create('О дивный новый мир', 'Олдос Хаксли', 'АСТ', '1932', '288', '22' )
+    //.f50px-spase
+      p
+
+    #bad-news 
+      p Записей по данному запросу не найдено :(
+
+    #table-container
+      table#my-table
+        tr.title
+          td Название
+          td Автор
+          td Издательство
+          td Год издания
+          td Кол-во страниц
+          td Место в рейтинге
+        +table-create('Война и мир', 'Лев Толстой', 'Советская Россия', '1869', '1472', '1' )
+        +table-create('1984', 'Джордж Оруэлл', 'КАРО', '1949', '384', '2' )
+        +table-create('Улисс', 'Джеймс Джойс', 'Текст', '1922', '1136', '3' )
+        +table-create('Лолита', 'Владимир Набоков', 'Азбука', '1955', '416', '4' )
+        +table-create('Звук и ярость', 'Уильям Фолкнер', 'АСТ', '1929', '416', '5' )
+        +table-create('Человек-невидимка', 'Ральф Эллисон', 'Random House', '1952', '399', '6' )
+        +table-create('На маяк', 'Вирджиния Вулф', 'АСТ', '1927', '288', '7' )
+        +table-create('Гордость и предубеждение', 'Джейн Остен', 'АСТ', '1813', '320', '8' )
+        +table-create('Божественная комедия', 'Данте Алигьери', 'Эксмо', '1620', '384', '9' )
+        +table-create('Кентерберийские рассказы', 'Джеффри Чосер', 'Эксмо', '1692', '768', '10' )
+        +table-create('Путешествия Гулливера', 'Джонатан Свифт', 'Махаон', '1726', '144', '11' )
+        +table-create('Мидлмарч', 'Джордж Элиот', 'Астрель', '1871', '832', '12' )
+        +table-create('Распад', 'Чинуа Ачебе', 'У-Фактория', '1998', '640', '13' )
+        +table-create('Над пропастью во ржи', 'Дж.Д.Сэлинджер', 'Эксмо', '1951', '272', '14' )
+        +table-create('Унесенные ветром', 'Маргарет Митчелл', 'Эксмо', '1939', '1056', '15' )
+        +table-create('Сто лет одиночества', 'Габриель Гарсиа Маркес', 'АСТ', '1967', '480', '16' )
+        +table-create('Великий гэтсби', 'Фрэнсис Скотт Фицджеральд', 'Эксмо', '1925', '256', '17' )
+        +table-create('Уловка-22', 'Джозеф Хеллер', 'АСТ', '1961', '672', '18' )
+        +table-create('Возлюбленная', 'Тони Моррисон', 'Эксмо', '1987', '384', '19' )
+        +table-create('Гроздья гнева', 'Джон Стейнбек', 'Азбука', '1939', '608', '20' )
+        +table-create('Дети полуночи', 'Салман Рушди', 'Лимбус', '1981', '760', '21' )
+        +table-create('О дивный новый мир', 'Олдос Хаксли', 'АСТ', '1932', '288', '22' )
